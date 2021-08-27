@@ -41,6 +41,8 @@ canvas.addEventListener('click', e => {
     cellGrid.draw()
 })
 
+ctx.fillStyle = '#273c75'
+ctx.fillRect(0, 0, canvas.width, canvas.height)
 cellGrid.draw()
 
 function draw() {

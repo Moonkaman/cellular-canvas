@@ -5,6 +5,7 @@ class Cell {
         this.y = y
         this.w = w
         this.h = h
+        this.borders = true
         this.color = color
         // this.alive = Math.random() < 0.1 ? true : false
         this.alive = alive
@@ -55,10 +56,15 @@ class Cell {
     draw() {
         // console.log(this.ctx)
         // console.log('cell draw')
-        this.ctx.fillStyle = '#273c75'
-        this.ctx.fillRect(this.x, this.y, this.w, this.y)
         this.ctx.fillStyle = this.alive ? this.aliveColor : this.deadColor
-        this.ctx.fillRect(this.x+1, this.y+1, this.w-2, this.h-2)
+        // this.ctx.beginPath();
+        // this.ctx.ellipse(this.x + this.w/2, this.y + this.h/2, this.w/2, this.h/2, 0, 0, Math.PI*2)
+        // this.ctx.fill();
+        if (this.borders) {
+            this.ctx.fillRect(this.x+1, this.y+1, this.w-2, this.h-2)
+        } else {
+            this.ctx.fillRect(this.x, this.y, this.w, this.h)
+        }
     }
 }
 
